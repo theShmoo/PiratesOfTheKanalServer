@@ -1,0 +1,2 @@
+openssl pkey -in cert.pem -out server.key
+openssl crl2pkcs7 -nocrl -certfile cert.pem | openssl pkcs7 -print_certs -out server.crt

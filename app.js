@@ -17,11 +17,6 @@ app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-var httpsServer = https.createServer(credentials, app);
-app.listen(port, () => {
- console.log("Server running on port " + port);
-});
-
 app.post("/subscribe", [
     check('mail').isEmail().normalizeEmail()
   ], (req, res) => {
@@ -39,6 +34,12 @@ app.post("/subscribe", [
     console.log('The mail ' + mail + ' was appended to file!');
   });
   res.sendStatus(200);
+});
+
+// start listening on the server
+var httpsServer = https.createServer(credentials, app);
+httpsServer.listen(port, () => {
+ console.log("Server running on port " + port);
 });
 
 /**
