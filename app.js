@@ -1,12 +1,7 @@
 var express = require("express");
-var https = require('https');
 var cors = require('cors');
 var fs = require('fs');
 const { check, validationResult } = require('express-validator');
-
-const privateKey  = fs.readFileSync('sslcert/server.key', 'utf8');
-const certificate = fs.readFileSync('sslcert/server.crt', 'utf8');
-const credentials = {key: privateKey, cert: certificate};
 
 var app = express();
 
@@ -37,8 +32,7 @@ app.post("/subscribe", [
 });
 
 // start listening on the server
-var httpsServer = https.createServer(credentials, app);
-httpsServer.listen(port, () => {
+app.listen(port, () => {
  console.log("Server running on port " + port);
 });
 
