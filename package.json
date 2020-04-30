@@ -4,7 +4,9 @@
   "description": "Server for the web app pirates of the kanal",
   "main": "app.js",
   "dependencies": {
-    "express": "latest"
+    "cors": "^2.8.5",
+    "express": "latest",
+    "express-validator": "^6.4.0"
   },
   "devDependencies": {},
   "scripts": {
