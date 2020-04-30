@@ -1,0 +1,33 @@
+{
+  "name": "piratesofthekanalserver",
+  "version": "1.0.0",
+  "description": "Server for the web app pirates of the kanal",
+  "main": "app.js",
+  "dependencies": {
+    "express": "latest",
+    "morgan": "latest",
+    "pug": "latest",
+    "nodemon": "latest",
+    "debug": "latest"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theShmoo/PiratesOfTheKanalServer.git"
+  },
+  "keywords": [
+    "pirates",
+    "kanal",
+    "tubing",
+    "server"
+  ],
+  "author": "David Pfahler",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/theShmoo/PiratesOfTheKanalServer/issues"
+  },
+  "homepage": "https://github.com/theShmoo/PiratesOfTheKanalServer#readme"
+}
