@@ -4,11 +4,11 @@
   "description": "Server for the web app pirates of the kanal",
   "main": "app.js",
   "dependencies": {
-    "express": "latest",
-    "morgan": "latest",
-    "pug": "latest",
-    "nodemon": "latest",
-    "debug": "latest"
+    "debug": "~4.1.1",
+    "express": "~4.16.4",
+    "morgan": "~1.9.1",
+    "nodemon": "^2.0.2",
+    "pug": "^2.0.3"
   },
   "devDependencies": {},
   "scripts": {
