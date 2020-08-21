@@ -7,14 +7,26 @@ var app = express();
 
 const port = normalizePort(process.env.PORT || '3000');
 
+// setup mail
+const nodemailer = require('nodemailer');
+let transport = nodemailer.createTransport({
+  host: '',
+  port: 465,
+  auth: {
+    user: '',
+    pass: ''
+  }
+});
+
+
 // enable CORS
 app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.post("/subscribe", [
-    check('mail').isEmail().normalizeEmail()
-  ], (req, res) => {
+  check('mail').isEmail().normalizeEmail()
+], (req, res) => {
 
   // Finds the validation errors in this request
   // and wraps them in an object with handy functions
@@ -26,14 +38,24 @@ app.post("/subscribe", [
   const mail = req.body.mail;
   fs.appendFile('mails.txt', mail + "\n", (err) => {
     if (err) throw err;
-    console.log('The mail ' + mail + ' was appended to file!');
+    const message = {
+      from: 'david@pfahler.at',
+      to: 'david@pfahler.at',
+      subject: '\"' + mail + '\" registered to Pirates of the Kanal!',
+      text: '\"' + mail + '\" registered to Pirates of the Kanal!'
+    };
+    transport.sendMail(message, function (err, info) {
+      if (err) {
+        throw err;
+      }
+    });
   });
   res.sendStatus(200);
 });
 
 // start listening on the server
 app.listen(port, () => {
- console.log("Server running on port " + port);
+  console.log("Server running on port " + port);
 });
 
 /**

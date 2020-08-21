@@ -4,10 +4,11 @@
   "description": "Server for the web app pirates of the kanal",
   "main": "app.js",
   "dependencies": {
-    "cors": "^2.8.5",
+    "cors": "latest",
     "express": "latest",
-    "express-validator": "^6.4.0",
-    "https": "^1.0.0"
+    "express-validator": "latest",
+    "https": "latest",
+    "nodemailer": "latest"
   },
   "devDependencies": {},
   "scripts": {
