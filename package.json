@@ -8,7 +8,7 @@
     "express": "latest",
     "express-validator": "latest",
     "https": "latest",
-    "nodemailer": "6.4.4"
+    "nodemailer": "6.4.16"
   },
   "devDependencies": {},
   "scripts": {
